@@ -1,6 +1,14 @@
-const amount=1000;
-let message= amount > 500 ? "The constant amount is greater than 500":"The constant amount is less than 500";
-console.log(message);
-console.log("This is my first node js app");
+//first we start by importing the fs common core module
 
-//Globals-
+const fs=require('fs');
+
+fs.readFile('./files/starter.txt', (err, data)=>{
+    if (err) throw new Error;
+    console.log(data.toString());
+});
+
+//Catching an error
+
+process.on('uncaughtException', err=>{
+    console.error(`There was an uncaught exception ${err}`)
+});
