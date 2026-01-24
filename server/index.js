@@ -7,4 +7,3 @@ const port=3000;
 server.listen(port,()=>{
     console.log("The server is running");
 })
-// this is a dummy commit to ensure that the streak on github continues
