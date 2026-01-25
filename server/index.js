@@ -29,4 +29,5 @@ const port=3000;
 
 server.listen(port,()=>{
     console.log("The server is running at port:", port);
-})
+});
+//the html document is rendering perfectly and the routing is working perfectly
