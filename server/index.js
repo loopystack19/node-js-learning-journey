@@ -4,6 +4,8 @@ const path=require('path');
 const http=require('http');
 
 const htmlFile=path.join(__dirname,'Home', 'index.html');
+const jsonData=path.join(__dirname,'Data','product.json');
+let products=JSON.parse(fs.readFileSync(jsonData,'utf8'));
 let htmlFileData=fs.readFileSync(htmlFile,'utf8');
 const server=http.createServer((request, response)=>{
     const url = request.url;
@@ -27,6 +29,11 @@ const server=http.createServer((request, response)=>{
     else if(url === '/services'){
         response.writeHead(200);
         response.end(htmlFileData.replace('Hello world ','This is the Services Page'))
+    }
+    else if(url === '/products'){
+        response.writeHead(200,{"Content-Type":"application/json"})
+        response.end("You are in the products page");
+        console.log(products);
     }
     else{
         response.writeHead(404,{"Content-Type":"text/plain"});
